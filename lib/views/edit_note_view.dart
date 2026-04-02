@@ -9,7 +9,14 @@ class EditNoteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CustomAppBar(title: 'Edit Note', icon: Icons.check),
+        automaticallyImplyLeading: false,
+        title: CustomAppBar(
+          title: 'Edit Note',
+          icon: Icons.check,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         elevation: 0,
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
