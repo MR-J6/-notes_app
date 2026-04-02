@@ -23,7 +23,7 @@ class NotesView extends StatelessWidget {
         child: Icon(CupertinoIcons.add),
       ),
       appBar: AppBar(
-        title: CustomAppBar(),
+        title: CustomAppBar(title: 'Notes', icon: Icons.search),
         elevation: 0,
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
