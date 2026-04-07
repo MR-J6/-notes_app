@@ -15,7 +15,10 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [Text(title), CustomIcon(icon: icon, onPressed: onPressed)],
+      children: [
+        Text(title, style: TextStyle(color: Colors.white)),
+        CustomIcon(icon: icon, onPressed: onPressed),
+      ],
     );
   }
 }
