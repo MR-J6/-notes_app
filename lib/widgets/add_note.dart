@@ -19,9 +19,7 @@ class _AddNoteState extends State<AddNote> {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNoteFailure) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+            print(state.errorMessage);
           }
           if (state is AddNoteSuccess) {
             Navigator.pop(context);
@@ -33,11 +31,9 @@ class _AddNoteState extends State<AddNote> {
         builder: (context, state) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-            child: SingleChildScrollView(
-              child: ModalProgressHUD(
-                inAsyncCall: state is AddNoteLoading ? true : false,
-                child: AddNoteForm(),
-              ),
+            child: ModalProgressHUD(
+              inAsyncCall: state is AddNoteLoading ? true : false,
+              child: SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },
