@@ -25,4 +25,16 @@ class MyBlocObserver extends BlocObserver {
     super.onTransition(bloc, transition);
     // TODO: implement onChange
   }
+
+  @override
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    debugPrint('close = $bloc');
+  }
+
+  @override
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    debugPrint('create = $bloc');
+  }
 }

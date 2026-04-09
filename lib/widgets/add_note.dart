@@ -14,8 +14,8 @@ class AddNote extends StatefulWidget {
 class _AddNoteState extends State<AddNote> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AddNoteCubit())],
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNoteFailure) {
