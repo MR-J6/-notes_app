@@ -29,10 +29,10 @@ class _AddNoteState extends State<AddNote> {
           }
         },
         builder: (context, state) {
-          return Padding(
-            padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-            child: ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoading ? true : false,
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
               child: SingleChildScrollView(child: AddNoteForm()),
             ),
           );
