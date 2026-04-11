@@ -37,10 +37,18 @@ class NoteItem extends StatelessWidget {
                   color: Colors.black.withValues(alpha: 0.5),
                 ),
               ),
-              trailing: Icon(
-                CupertinoIcons.delete,
-                color: Colors.black,
-                size: 30,
+              trailing: IconButton(
+                onPressed: () {
+                  note.delete();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Note deleted successfully')),
+                  );
+                },
+                icon: Icon(
+                  CupertinoIcons.delete,
+                  color: Colors.black,
+                  size: 30,
+                ),
               ),
             ),
             Text(
