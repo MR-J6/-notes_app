@@ -11,36 +11,33 @@ class NotesView extends StatelessWidget {
   static String id = 'NotesView';
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit()..fetchAllNotes(),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  builder: (context) {
-                    return AddNote();
-                  },
-                ).then((value) {
-                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-                });
-              },
-              elevation: 20,
-              child: Icon(CupertinoIcons.add, color: Colors.white),
-            ),
-            appBar: AppBar(
-              title: CustomAppBar(title: 'Notes', icon: Icons.search),
-              elevation: 0,
-              scrolledUnderElevation: 0,
-              backgroundColor: Colors.transparent,
-            ),
-            body: Column(children: [Expanded(child: NotesListView())]),
-          );
-        },
-      ),
+    return Builder(
+      builder: (context) {
+        return Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder: (context) {
+                  return AddNote();
+                },
+              ).then((value) {
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              });
+            },
+            elevation: 20,
+            child: Icon(CupertinoIcons.add, color: Colors.white),
+          ),
+          appBar: AppBar(
+            title: CustomAppBar(title: 'Notes', icon: Icons.search),
+            elevation: 0,
+            scrolledUnderElevation: 0,
+            backgroundColor: Colors.transparent,
+          ),
+          body: Column(children: [Expanded(child: NotesListView())]),
+        );
+      },
     );
   }
 }
